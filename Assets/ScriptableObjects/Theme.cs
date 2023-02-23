@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace DiceDemo.Scenery
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "DiceDemo/Theme")]
     public class Theme : ScriptableObject
     {
-        public ThemeType Type;
+        public string Name;
 
         public Material BorderMaterial;
         public Material FloorMaterial;

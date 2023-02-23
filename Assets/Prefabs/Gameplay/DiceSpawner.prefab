@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4691535574348547684}
-  - component: {fileID: 7169281801912773343}
-  - component: {fileID: 4003652962021105973}
   m_Layer: 0
   m_Name: DiceSpawner
   m_TagString: Untagged
@@ -33,30 +31,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7169281801912773343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4691535574348547685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 333d97bf6d636fc48a5c4cf764f3145f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4003652962021105973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4691535574348547685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeaac9057f075d046aecf4803b12b290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _diceSet:
-  - {fileID: 4449764227502208199, guid: 0a011f98c4650ac48a96825976c83668, type: 3}
-  - {fileID: 9029738335408998466, guid: a3baf87bee952e84a9422683d7708285, type: 3}
