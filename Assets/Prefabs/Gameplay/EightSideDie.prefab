@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8874292465238055463}
+  - component: {fileID: 5685969543238571906}
   - component: {fileID: 6048614292709876589}
   - component: {fileID: 7121673736309278713}
   - component: {fileID: 5807703503970745215}
@@ -74,6 +75,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5685969543238571906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401381687968041244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7744338e7343e44aa71bbde9e9fad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sides:
+  - {fileID: 599976679244109874}
+  - {fileID: 8902958691018220041}
+  - {fileID: 7698155209756651097}
+  - {fileID: 4452776292109626740}
+  - {fileID: 8528315669099923483}
+  - {fileID: 1850746132795875699}
+  - {fileID: 5214708527040667591}
+  - {fileID: 6259696360395169303}
+  _values: 0000000001000000020000000400000008000000100000002000000040000000
 --- !u!33 &6048614292709876589
 MeshFilter:
   m_ObjectHideFlags: 0
