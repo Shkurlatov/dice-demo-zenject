@@ -141,6 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691737633}
   - component: {fileID: 691737632}
+  - component: {fileID: 691737634}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -160,8 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 802cefd6b281eef4cb1f9edbbbb03ba9, type: 2}
+  _monoInstallers:
+  - {fileID: 691737634}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -194,6 +197,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &691737634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691737631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84bf518bee9eafd45999adda774c7c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameCanvas: {fileID: 44998980}
+  _diceSpawnPoint: {fileID: 1205953117}
 --- !u!1 &773201196
 GameObject:
   m_ObjectHideFlags: 0
