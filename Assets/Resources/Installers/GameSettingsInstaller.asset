@@ -13,33 +13,41 @@ MonoBehaviour:
   m_Name: GameSettingsInstaller
   m_EditorClassIdentifier: 
   GameInstaller:
-    DiceSet: []
-    ThrowDiceButtonPrefab: {fileID: 0}
-    ThemeChangeButtonPrefab: {fileID: 0}
-    DiceResultMessagePrefab: {fileID: 0}
+    DiceSet:
+    - {fileID: 4464022763671528302, guid: 0a011f98c4650ac48a96825976c83668, type: 3}
+    - {fileID: 9035288326959243243, guid: a3baf87bee952e84a9422683d7708285, type: 3}
+    ThrowDiceButtonPrefab: {fileID: 2996572718863217514, guid: dcfe958bfd2320f428c4f5310385f111,
+      type: 3}
+    ThemeChangeButtonPrefab: {fileID: 8735524085653379864, guid: 9f6c1dd76fff0f74caf396e08f969e28,
+      type: 3}
+    DiceResultMessagePrefab: {fileID: 5885256623765426221, guid: 3fb4af7cab92a36448f6d2099d35a2c6,
+      type: 3}
   Gameplay:
     ImpulseGenerator:
-      MinTorque: 0
-      MaxTorque: 0
-      MinDeviation: 0
-      MaxDeviation: 0
-      MinThrust: 0
-      MaxThrust: 0
+      MinTorque: 0.01
+      MaxTorque: 0.02
+      MinDeviation: 0.1
+      MaxDeviation: 0.2
+      MinThrust: 5.6
+      MaxThrust: 6.4
     DiceSpawner:
-      BeforeSpawnDelay: 0
-      BetweenSpawnDelay: 0
+      BeforeSpawnDelay: 950
+      BetweenSpawnDelay: 50
   Gui:
     GuiElement:
-      Interval: 0
+      Interval: 30
     DiceResultMessagesManager:
-      MaxMessagesCount: 0
+      MaxMessagesCount: 10
     DiceResultMessagesTransformer:
-      StartOffsetFactor: 0
-      FadeFactor: 0
-      TransformationSpeed: 0
-      TransformationTimeLimit: 0
+      StartOffsetFactor: 1.25
+      FadeFactor: 0.6
+      TransformationSpeed: 4
+      TransformationTimeLimit: 1000
   System:
     AudioHandler:
-      ButtonClickSound: {fileID: 0}
-      DiceShakingSound: {fileID: 0}
-      DiceRollingSound: {fileID: 0}
+      ButtonClickSound: {fileID: 8300000, guid: 4f9a2407b0939c74087649731a346436,
+        type: 3}
+      DiceShakingSound: {fileID: 8300000, guid: 51cfec4f785cab749bdc1883f1d98856,
+        type: 3}
+      DiceRollingSound: {fileID: 8300000, guid: b36352ef949bb824684c51f089c8ad8d,
+        type: 3}
