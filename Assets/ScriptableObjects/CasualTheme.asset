@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d263ca1969bf3b409935dc99e9b206f, type: 3}
+  m_Name: CasualTheme
+  m_EditorClassIdentifier: 
+  Name: Casual
+  BorderMaterial: {fileID: 2100000, guid: ebda333c9a0c28f4896c56368d418627, type: 2}
+  FloorMaterial: {fileID: 2100000, guid: bdbefffb5826527469d08580a2441a7d, type: 2}
+  SurfaceMaterial: {fileID: 2100000, guid: d8daa1c5514ed8d4c8a5b87fe28a7498, type: 2}
