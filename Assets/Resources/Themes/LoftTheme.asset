@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d263ca1969bf3b409935dc99e9b206f, type: 3}
   m_Name: LoftTheme
   m_EditorClassIdentifier: 
-  Type: 2
+  Name: Loft
   BorderMaterial: {fileID: 2100000, guid: 4373c06d7523bf04693454f3e497baf8, type: 2}
   FloorMaterial: {fileID: 2100000, guid: 41a7cd9315e59e348b3838d4c714365a, type: 2}
   SurfaceMaterial: {fileID: 2100000, guid: 7c24c85316a0bbe4baa04c3bbc4b0088, type: 2}

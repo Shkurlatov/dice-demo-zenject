@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d263ca1969bf3b409935dc99e9b206f, type: 3}
   m_Name: LuxuryTheme
   m_EditorClassIdentifier: 
-  Type: 3
+  Name: Luxury
   BorderMaterial: {fileID: 2100000, guid: ab61b198d0d1c734b847973bbf3f6399, type: 2}
   FloorMaterial: {fileID: 2100000, guid: f9b9814d988263a458852ee22e96e95c, type: 2}
   SurfaceMaterial: {fileID: 2100000, guid: 2837ecd25577cd24b8c8b28f62b27388, type: 2}
