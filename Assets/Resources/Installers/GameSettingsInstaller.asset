@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0a491dbe2fc4b4c897620aca98c024, type: 3}
+  m_Name: GameSettingsInstaller
+  m_EditorClassIdentifier: 
+  GameInstaller:
+    DiceSet: []
+    ThrowDiceButtonPrefab: {fileID: 0}
+    ThemeChangeButtonPrefab: {fileID: 0}
+    DiceResultMessagePrefab: {fileID: 0}
+  Gameplay:
+    ImpulseGenerator:
+      MinTorque: 0
+      MaxTorque: 0
+      MinDeviation: 0
+      MaxDeviation: 0
+      MinThrust: 0
+      MaxThrust: 0
+    DiceSpawner:
+      BeforeSpawnDelay: 0
+      BetweenSpawnDelay: 0
+  Gui:
+    GuiElement:
+      Interval: 0
+    DiceResultMessagesManager:
+      MaxMessagesCount: 0
+    DiceResultMessagesTransformer:
+      StartOffsetFactor: 0
+      FadeFactor: 0
+      TransformationSpeed: 0
+      TransformationTimeLimit: 0
+  System:
+    AudioHandler:
+      ButtonClickSound: {fileID: 0}
+      DiceShakingSound: {fileID: 0}
+      DiceRollingSound: {fileID: 0}
