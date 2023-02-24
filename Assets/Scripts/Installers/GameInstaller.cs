@@ -15,10 +15,8 @@ namespace DiceDemo.Installers
         [Inject]
         readonly Settings _settings = null;
 
-        [SerializeField]
-        Transform _gameCanvas;        
-        [SerializeField]
-        Transform _diceSpawnPoint;
+        [SerializeField] Transform _gameCanvas;        
+        [SerializeField] Transform _diceSpawnPoint;
 
         public override void InstallBindings()
         {
@@ -57,16 +55,10 @@ namespace DiceDemo.Installers
         {
             Container.Bind<string>().FromResolveAllGetter<Theme>(x => x.Name);
             Container.Bind<Queue<DiceResultMessage>>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ThemeChangeButtonsManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<DiceResultMessagesTransformer>().AsSingle();
             Container.Bind<DiceResultMessagesManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ThemeChangeButtonsManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<GuiHandler>().AsSingle();
-
-            Container
-                .BindFactory<string, int, ThemeChangeButton, ThemeChangeButton.Factory>()
-                .FromComponentInNewPrefab(_settings.ThemeChangeButtonPrefab)
-                .WithGameObjectName("ThemeChangeButton")
-                .UnderTransform(_gameCanvas);
+            Container.Bind<GuiHandler>().AsSingle();
 
             Container
                 .BindInterfacesAndSelfTo<ThrowDiceButton>()
@@ -74,6 +66,12 @@ namespace DiceDemo.Installers
                 .WithGameObjectName("ThrowDiceButton")
                 .UnderTransform(_gameCanvas)
                 .AsSingle();
+
+            Container
+                .BindFactory<string, int, ThemeChangeButton, ThemeChangeButton.Factory>()
+                .FromComponentInNewPrefab(_settings.ThemeChangeButtonPrefab)
+                .WithGameObjectName("ThemeChangeButton")
+                .UnderTransform(_gameCanvas);
 
             Container
                 .BindFactory<DiceResultMessage, DiceResultMessage.Factory>()
@@ -93,15 +91,10 @@ namespace DiceDemo.Installers
         {
             SignalBusInstaller.Install(Container);
 
-            Container.DeclareSignal<ThemeChangeSignal>();
             Container.DeclareSignal<ThrowDiceSignal>();
             Container.DeclareSignal<DiceTouchSurfaceSignal>();
             Container.DeclareSignal<DiceResultSignal>();
-
-            Container
-                .BindSignal<ThemeChangeSignal>()
-                .ToMethod<GameProcessor>(x => x.OnThemeChangeCommand)
-                .FromResolve();
+            Container.DeclareSignal<ThemeChangeSignal>();
 
             Container
                 .BindSignal<ThrowDiceSignal>()
@@ -116,7 +109,12 @@ namespace DiceDemo.Installers
             Container
                 .BindSignal<DiceResultSignal>()
                 .ToMethod<GameProcessor>(x => x.OnDiceResult)
-                .FromResolve();          
+                .FromResolve();
+
+            Container
+                .BindSignal<ThemeChangeSignal>()
+                .ToMethod<GameProcessor>(x => x.OnThemeChangeCommand)
+                .FromResolve();
         }
 
         [Serializable]

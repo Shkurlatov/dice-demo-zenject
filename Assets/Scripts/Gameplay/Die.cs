@@ -12,18 +12,34 @@ namespace DiceDemo.Gameplay
 
         public Vector3 Position
         {
+            get { return transform.position; }
             set { transform.position = value; }
         }
 
-        public bool IsTouchSurface 
+        public Quaternion Rotation
         {
-            get { return _isTouchSurface; } 
-            set { _isTouchSurface = value; }
+            set { transform.rotation = value; }
+        }
+
+        public Vector3 Torque
+        {
+            set { _rigidbody.AddTorque(value, ForceMode.Impulse); }
+        }
+        
+        public Vector3 Force
+        {
+            set { _rigidbody.AddForce(value, ForceMode.Impulse); }
         }
 
         public float Magnitude
         {
             get { return _rigidbody.velocity.sqrMagnitude; }
+        }
+
+        public bool IsTouchSurface
+        {
+            get { return _isTouchSurface; }
+            set { _isTouchSurface = value; }
         }
 
         void Awake()
@@ -37,25 +53,15 @@ namespace DiceDemo.Gameplay
 
         void OnCollisionEnter(Collision collision)
         {
-            if (_isTouchSurface) 
-            { 
-                return; 
+            if (_isTouchSurface)
+            {
+                return;
             }
 
             if (collision.gameObject.name == "Surface")
             {
                 _isTouchSurface = true;
             }
-        }
-
-        public void ApplyImpulse(RandomImpulse impulse)
-        {
-            Vector3 direction = Vector3.zero - transform.position;
-            Vector3 force = direction * impulse.Thrust + impulse.Deviation;
-
-            transform.rotation = impulse.Rotation;
-            _rigidbody.AddTorque(impulse.Torque, ForceMode.Impulse);
-            _rigidbody.AddForce(force, ForceMode.Impulse);
         }
 
         public int GetResult()

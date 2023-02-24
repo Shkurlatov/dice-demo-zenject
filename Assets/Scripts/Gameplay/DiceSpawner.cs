@@ -36,8 +36,19 @@ namespace DiceDemo.Gameplay
                 await UniTask.Delay(_settings.BetweenSpawnDelay);
 
                 die.gameObject.SetActive(true);
-                die.ApplyImpulse(_impulseGenerator.GenerateRandomImpulse());
+                AddImpulseToDie(die);
             }
+        }
+
+        public void AddImpulseToDie(Die die)
+        {
+            RandomImpulse randomImpulse = _impulseGenerator.GenerateRandomImpulse();
+            Vector3 direction = Vector3.zero - die.Position;
+            Vector3 force = direction * randomImpulse.Thrust + randomImpulse.Deviation;
+
+            die.Rotation = randomImpulse.Rotation;
+            die.Torque = randomImpulse.Torque;
+            die.Force = force;
         }
 
         [Serializable]

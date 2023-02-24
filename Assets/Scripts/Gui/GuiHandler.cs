@@ -3,35 +3,30 @@ using Zenject;
 
 namespace DiceDemo.Gui
 {
-    public class GuiHandler : IInitializable
+    public class GuiHandler
     {
-        private readonly ThemeChangeButtonsManager _themeChangeButtonsController;
         private readonly ThrowDiceButton _throwDiceButton;
+        private readonly ThemeChangeButtonsManager _themeChangeButtonsManager;
         private readonly DiceResultMessagesManager _diceResultMessagesManager;
 
         public GuiHandler(
-            ThemeChangeButtonsManager themeChangeButtonsController, 
-            DiceResultMessagesManager diceResultMessagesManager, 
-            ThrowDiceButton throwDiceButton)
+            ThrowDiceButton throwDiceButton,
+            ThemeChangeButtonsManager themeChangeButtonsManager, 
+            DiceResultMessagesManager diceResultMessagesManager)
         {
-            _themeChangeButtonsController = themeChangeButtonsController;
             _throwDiceButton = throwDiceButton;
+            _themeChangeButtonsManager = themeChangeButtonsManager;
             _diceResultMessagesManager = diceResultMessagesManager;
-        }
-
-        public void Initialize()
-        {
-            _throwDiceButton.Position = _throwDiceButton.StartPosition;
-        }
-
-        public void ReactToThemeChange(int currentThemeIndex)
-        {
-            _themeChangeButtonsController.ChangeIndication(currentThemeIndex);
         }
 
         public void ReactToDiceThrowing()
         {
             _throwDiceButton.SetPressed();
+        }
+
+        public void ReactToThemeChange(int currentThemeIndex)
+        {
+            _themeChangeButtonsManager.ChangeIndication(currentThemeIndex);
         }
 
         public void ReactToDiceResult(int[] diceResult)

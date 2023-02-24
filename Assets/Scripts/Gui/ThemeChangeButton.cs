@@ -17,10 +17,9 @@ namespace DiceDemo.Gui
         [Inject]
         public void Construct(string themeName, int themeIndex)
         {
-            _themeIndex = themeIndex;
-
             gameObject.name += $" ({themeName})";
             _buttonText.text = themeName.ToUpper();
+            _themeIndex = themeIndex;
         }
 
         public void UpdateCondition(int currentThemeIndex)

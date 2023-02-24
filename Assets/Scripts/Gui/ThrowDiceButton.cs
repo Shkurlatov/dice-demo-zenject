@@ -12,6 +12,11 @@ namespace DiceDemo.Gui
             _animator = GetComponent<Animator>();
         }
 
+        void Start()
+        {
+            Position = StartPosition;
+        }
+
         public override void OnClick()
         {
             _signalBus.Fire<ThrowDiceSignal>();

@@ -35,17 +35,6 @@ namespace DiceDemo.System
             SetEnvironmentTheme(_mockGameData.LoadThemeIndex());
         }
 
-        public void OnThemeChangeCommand(ThemeChangeSignal themeChangeSignal)
-        {
-            _audioPlayer.PlayButtonClickSound();
-
-            if (_environment.CurrentThemeIndex != themeChangeSignal.ThemeIndex)
-            {
-                SetEnvironmentTheme(themeChangeSignal.ThemeIndex);
-                _mockGameData.SaveThemeIndex(themeChangeSignal.ThemeIndex);
-            }
-        }
-
         public void OnThrowDiceCommand()
         {
             if (_isWaitingDiceResult)
@@ -69,6 +58,17 @@ namespace DiceDemo.System
             _mockGameData.AddDiceResult(diceResultSignal.DiceResult);
             _guiHandler.ReactToDiceResult(diceResultSignal.DiceResult);
             _isWaitingDiceResult = false;
+        }
+
+        public void OnThemeChangeCommand(ThemeChangeSignal themeChangeSignal)
+        {
+            _audioPlayer.PlayButtonClickSound();
+
+            if (_environment.CurrentThemeIndex != themeChangeSignal.ThemeIndex)
+            {
+                SetEnvironmentTheme(themeChangeSignal.ThemeIndex);
+                _mockGameData.SaveThemeIndex(themeChangeSignal.ThemeIndex);
+            }
         }
 
         private void SetEnvironmentTheme(int themeIndex)

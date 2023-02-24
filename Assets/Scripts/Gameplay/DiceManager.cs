@@ -80,14 +80,14 @@ namespace DiceDemo.Gameplay
 
         private int[] GetDiceResult()
         {
-            List<int> diceResult = new();
+            int[] diceResult = new int[_diceSet.Count];
 
-            foreach (Die die in _diceSet)
+            for (int i = 0; i < _diceSet.Count; i++)
             {
-                diceResult.Add(die.GetResult());
+                diceResult[i] = _diceSet[i].GetResult();
             }
 
-            return diceResult.ToArray();
+            return diceResult;
         }
     }
 }
