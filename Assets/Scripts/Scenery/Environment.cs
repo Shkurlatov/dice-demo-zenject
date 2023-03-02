@@ -1,52 +1,45 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace DiceDemo.Scenery
 {
     public class Environment : MonoBehaviour
     {
-
         [SerializeField] private Renderer _surface;
         [SerializeField] private Renderer _floor;
         [SerializeField] private Renderer[] _borders;
 
-        [SerializeField] private List<Theme> _themes;
+        private int _currentThemeIndex;
+        private List<Theme> _themes;
 
-        private ThemeType _currentThemeType;
-
-        private Dictionary<ThemeType, Theme> _themesByType;
-
-        void Awake()
+        public int CurrentThemeIndex
         {
-            _themesByType = new Dictionary<ThemeType, Theme>();
+            get { return _currentThemeIndex; }
+        }
 
-            foreach (ThemeType themeType in Enum.GetValues(typeof(ThemeType)))
+        [Inject]
+        public void Construct(List<Theme> themes)
+        {
+            _themes = themes;
+        }
+
+        public void SetTheme(int themeIndex)
+        {
+            try
             {
-                Theme theme = _themes.Find(x => x.Type == themeType) ?? throw new UnassignedReferenceException($"{typeof(Theme)} of {themeType} type is not assigned to {nameof(_themes)}");
-                _themesByType.Add(themeType, theme);
+                SetEnvironmentMaterials(_themes[themeIndex]);
             }
-        }
-
-        public void SetTheme(ThemeType themeType)
-        {
-            _currentThemeType = themeType;
-            SetMaterials(_themesByType.GetValueOrDefault(_currentThemeType));
-        }
-
-        public bool IsSetNewTheme(ThemeType themeType)
-        {
-            if (themeType == _currentThemeType)
+            catch (ArgumentOutOfRangeException)
             {
-                return false;
+                throw new ArgumentOutOfRangeException($"{nameof(_themes)} does not contain {typeof(Theme)} with index {themeIndex}");
             }
 
-            SetTheme(themeType);
-
-            return true;
+            _currentThemeIndex = themeIndex;
         }
 
-        private void SetMaterials(Theme theme)
+        private void SetEnvironmentMaterials(Theme theme)
         {
             _surface.material = theme.SurfaceMaterial;
             _floor.material = theme.FloorMaterial;

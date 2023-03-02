@@ -5,9 +5,9 @@ namespace DiceDemo.System
 {
     public class MockGameData
     {
-        const string ThemeKey = "Theme";
+        private const string _themeKey = "Theme";
 
-        private List<int[]> _diceResults;
+        private readonly List<int[]> _diceResults;
 
         public MockGameData()
         {
@@ -19,15 +19,15 @@ namespace DiceDemo.System
             _diceResults.Add(diceResult);
         }
 
-        public void SaveThemeType(ThemeType themeType)
+        public void SaveThemeIndex(int themeIndex)
         {
-            PlayerPrefs.SetInt(ThemeKey, (int)themeType);
+            PlayerPrefs.SetInt(_themeKey, themeIndex);
             PlayerPrefs.Save();
         }
 
-        public ThemeType LoadThemeType()
+        public int LoadThemeIndex()
         {
-            return (ThemeType)PlayerPrefs.GetInt(ThemeKey, 0);
+            return PlayerPrefs.GetInt(_themeKey);
         }
     }
 }

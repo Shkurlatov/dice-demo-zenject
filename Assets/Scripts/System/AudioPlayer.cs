@@ -1,35 +1,40 @@
+using System;
 using UnityEngine;
 
 namespace DiceDemo.System
 {
-    public class AudioPlayer : MonoBehaviour
+    public class AudioPlayer
     {
-        [SerializeField] private AudioSource _audioSource;
+        readonly Settings _settings;
+        readonly AudioSource _audioSource;
 
-        [SerializeField] private AudioClip _diceShaking;
-        [SerializeField] private AudioClip _diceRolling;
-        [SerializeField] private AudioClip _buttonClick;
-
-        private GlobalAudio _globalAudio;
-
-        void Awake()
+        public AudioPlayer(Settings settings, AudioSource audioSource)
         {
-            _globalAudio = new GlobalAudio(PlayDiceRollingSound);
+            _settings = settings;
+            _audioSource = audioSource;
         }
 
         public void PlayButtonClickSound()
         {
-            _audioSource.PlayOneShot(_buttonClick);
+            _audioSource.PlayOneShot(_settings.ButtonClickSound);
         }
 
         public void PlayDiceShakingSound()
         {
-            _audioSource.PlayOneShot(_diceShaking);
+            _audioSource.PlayOneShot(_settings.DiceShakingSound);
         }
 
-        private void PlayDiceRollingSound()
+        public void PlayDiceRollingSound()
         {
-            _audioSource.PlayOneShot(_diceRolling);
+            _audioSource.PlayOneShot(_settings.DiceRollingSound);
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            public AudioClip ButtonClickSound;
+            public AudioClip DiceShakingSound;
+            public AudioClip DiceRollingSound;
         }
     }
 }
